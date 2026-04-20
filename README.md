@@ -1,10 +1,10 @@
 # speaker-verification
 
-Identify speakers in an audio recording by comparing it against short enrollment clips. Wraps the [Azure Speaker Recognition](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speaker-recognition-overview) text-independent API.
+I wanted a way to grade class participation fairly. Professors do it from memory, which biases toward whoever talks loudest. If you enroll each student against a 30–45 s voice clip, then feed in a lecture recording, you can in theory get a per-student speaking-time breakdown instead of a vibes-based grade.
 
-Original use case: a classroom — enroll each student with a 30–45 s clip, then feed in a long lecture recording and get a per-speaker speaking-time breakdown.
+This repo gets you most of the way there. It wraps the [Azure Speaker Recognition](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speaker-recognition-overview) text-independent API: upload enrollment audio, upload a verification clip, get back which enrolled voices are present and at what confidence. The piece that's not done yet is time-aligned segmentation (splitting the lecture into short chunks so you can sum per-speaker minutes). Easy to add on top of what's here.
 
-> **Bring your own audio.** No voice samples are shipped with this repo (biometric data shouldn't live in a public repo). Drop your enrollment clips into `audio/enrollment/` and your verification clips into `audio/verification/` — both are gitignored.
+No voice samples shipped. Biometric data shouldn't live in a public repo. Drop your own enrollment clips into `audio/enrollment/`, verification clips into `audio/verification/` (both gitignored), and you can run it.
 
 ## How it works
 
