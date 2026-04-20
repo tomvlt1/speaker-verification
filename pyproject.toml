@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speaker-verification"
+version = "0.2.0"
+description = "Identify speakers in an audio file via Azure Speaker Recognition (text-independent)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Tom Valentin" }]
+dependencies = [
+    "pydub>=0.25",
+    "python-dotenv>=1.0",
+]
+
+[project.scripts]
+speaker-verification = "speaker_verification.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
