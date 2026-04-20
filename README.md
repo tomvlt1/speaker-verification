@@ -86,14 +86,14 @@ python -m speaker_verification reset --yes   # skip prompt
 | lecture_01.wav | 823.4 | alice | 5e2a… | 0.87 |
 | lecture_01.wav | 823.4 | bob   | 88e7… | 0.77 |
 
-Multiple accept rows per file are possible — Azure verifies independently against each profile, so in a lecture with four enrolled students you can get four matches on the same clip.
+Multiple accept rows per file are possible. Azure verifies independently against each profile, so in a lecture with four enrolled students you can get four matches on the same clip.
 
 ## Known limitations
 
-- **Azure subscription required.** This is a thin client — the actual model is Microsoft's. Free tier is rate-limited (20 transactions per second, 10,000 per month at time of writing).
+- **Azure subscription required.** This is a thin client; the actual model is Microsoft's. Free tier is rate-limited (20 transactions per second, 10,000 per month at time of writing).
 - **Text-independent verification needs ≥20 s of speech** per enrollment for reliable scores. Azure returns `Enrolling` rather than `Enrolled` if you're below that.
-- **No per-speaker speaking time yet.** `verify` tells you *which* enrolled speakers appear in a clip but not *for how long*. To get that, you'd need to split the input into short segments and run `verify` on each (easy to add — happy to accept PRs).
-- **Binary Accept/Reject.** Azure returns a confidence score 0–1, but there's no timestamp alignment — it's a global judgment on the whole clip.
+- **No per-speaker speaking time yet.** `verify` tells you *which* enrolled speakers appear in a clip but not *for how long*. To get that, you'd need to split the input into short segments and run `verify` on each (easy to add, happy to accept PRs).
+- **Binary Accept/Reject.** Azure returns a confidence score 0–1, but there's no timestamp alignment; it's a global judgment on the whole clip.
 - **Privacy.** Enrollment audio contains biometric data. Don't commit it; the `.gitignore` here already protects `audio/**/*`.
 
 ## Layout
