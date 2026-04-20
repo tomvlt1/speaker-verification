@@ -35,7 +35,7 @@ No voice samples shipped. Biometric data shouldn't live in a public repo. Drop y
 Requires Python 3.10+ and [ffmpeg](https://ffmpeg.org/) on your path (pydub depends on it).
 
 ```bash
-git clone https://github.com/<your-username>/speaker-verification.git
+git clone https://github.com/tomvlt1/speaker-verification.git
 cd speaker-verification
 python3 -m venv venv
 source venv/bin/activate
